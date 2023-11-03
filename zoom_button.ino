@@ -1,35 +1,48 @@
-#include <Codekeys.h>
-#include <EasyHID.h>
-#include <HIDPrivate.h>
-#include <usbconfig.h>
+#include <Keyboard.h>
 
-#include <Arduino.h>
+int pinButton = 8;
+int pinLED = 2;
 
-#include <EncButton.h>
-Button btn(7, INPUT_PULLUP, HIGH);
+bool flag = false;
 
-static uint32_t clickedMoment;
-bool clicked = false;
+void click_hand_on_off();
+void click_sound_on_off();
 
 void setup() {
-    Serial.begin(9600);
-    HID.begin();
+  pinMode(pinButton, INPUT);
+  pinMode(pinLED, OUTPUT);
+  digitalWrite(pinLED, HIGH);
 }
 
+
 void loop() {
-    btn.tick();
+  // читаем инвертированное значение для удобства
+  bool btnState = !digitalRead(pinButton);
+  if (btnState && !flag) {  // обработчик нажатия
+    flag = true;
+    digitalWrite(pinLED, HIGH);
+    click_hand_on_off();
+    click_sound_on_off();
+    
+  }
+  if (!btnState && flag) {  // обработчик отпускания
+    flag = false;  
+    digitalWrite(pinLED, LOW);
+    Keyboard.press(KEY_LEFT_SHIFT);
+    Keyboard.write('b');
+    Keyboard.release(KEY_LEFT_SHIFT);
+  }
+}
 
-    if (btn.click()) {
-      Serial.println("Hand");
-      Keyboard.click(KEY_LEFT_ALT, KEY_1); // Alt + 1
-      clicked = true;
-      clickedMoment = millis();
-    }
+void click_hand_on_off() {
+  Keyboard.press(KEY_LEFT_ALT);
+  Keyboard.write('1');
+  Keyboard.releaseAll();
+}
 
-    if ((clicked) && (millis() - clickedMoment > 3000)) { // 3 sec
-      Serial.println("Mic");
-      Keyboard.click(KEY_LEFT_SHIFT, KEY_LEFT_ALT, KEY_0); // Shift + Alt + 0
-      clicked = false;
-    }
-
+void click_sound_on_off() {
+  Keyboard.press(KEY_LEFT_ALT);
+  Keyboard.press(KEY_LEFT_SHIFT);
+  Keyboard.write('0');
+  Keyboard.releaseAll();
 }
