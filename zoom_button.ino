@@ -7,9 +7,28 @@
   -- включить/выключить звук;
   -- показать/скрыть чат.
 
+  PIN_HEAD  Пин кнопки поднятия/опускания руки.
+  PIN_SOUND Пин кнопки вкл/выкл звука.
+  PIN_CHAT  Пин кнопки отображения чата.
+
+  DEBUG Если переменная определена, клавиатура переходит в отладочный режим
+        -- кнопки отправляют только чистые символы, без клавиш-модификаторов.
+
 */
 
 #include <Keyboard.h>
+
+//#define DEBUG 1
+
+#define PIN_HAND  7
+#define PIN_SOUND 8
+#define PIN_CHAT  9
+
+#ifdef DEBUG
+#define KEYBOARD_PRESS(x)
+#else
+#define KEYBOARD_PRESS(x) Keyboard.press(x)
+#endif
 
 // Класс работы с кнопкой
 class ZoomButton {
@@ -22,6 +41,8 @@ class ZoomButton {
 
     void check_and_react() { // TODO разбить на две функции, а то в этой два действия, перегруз
       _update_current_state();
+      // Serial.println(_pressed_flag);
+      // Serial.println(_current_state);
 
       // TODO Перевести два if на switch (just-функцию тоже можно оставить одну)
       if (_just_pressed()) {
@@ -41,7 +62,7 @@ class ZoomButton {
     void _react_on_press() { (*_react_on_press_pointer)(); }  // обёртка указателя на функцию-обработчик нажатия
 
     void _update_current_state() {
-      _current_state = !digitalRead(_pin);  // TODO обновить после подключения триггера Шмитта
+      _current_state = !digitalRead(_pin); // инверсия из-за подтяжки к 5 В
     }
 
     bool _just_pressed() {  // проверка, что кнопка только что нажата
@@ -54,24 +75,25 @@ class ZoomButton {
 
 };
 
-int pinLED = 9;  // TODO зашить реакцию светодиодом в класс кнопки
-
 // функции-обработчики для разных кнопок
 void click_hand_on_off();
 void click_sound_on_off();
 void click_chat_on_off();
 
 // кнопки с привязкой к Zoom-функциональности
-ZoomButton handButton(8, click_hand_on_off);
-ZoomButton soundButton(7, click_sound_on_off);
-ZoomButton chatButton(A3, click_chat_on_off);
+ZoomButton handButton(PIN_HAND, click_hand_on_off);
+ZoomButton soundButton(PIN_SOUND, click_sound_on_off);
+ZoomButton chatButton(PIN_CHAT, click_chat_on_off);
 
 /*
   СТАРТ ПРОГРАММЫ
 */
 void setup() {
-  pinMode(pinLED, OUTPUT);
-  digitalWrite(pinLED, HIGH);
+  // pinMode(pinLED, OUTPUT);
+  // digitalWrite(pinLED, HIGH);
+  // Serial.begin(9600);
+  //Keyboard.press(' ');
+  //Keyboard.releaseAll();
 }
 
 /*
@@ -91,23 +113,23 @@ void loop() {
 
 // поднять-опустить руку
 void click_hand_on_off() {
-  Keyboard.press(KEY_LEFT_ALT);
+  KEYBOARD_PRESS(KEY_LEFT_ALT);
   Keyboard.write('1');
   Keyboard.releaseAll();
 }
 
 // вкл-выкл звук
 void click_sound_on_off() {
-  Keyboard.press(KEY_LEFT_ALT);
-  Keyboard.press(KEY_LEFT_SHIFT);
+  KEYBOARD_PRESS(KEY_LEFT_ALT);
+  KEYBOARD_PRESS(KEY_LEFT_SHIFT);
   Keyboard.write('0');
   Keyboard.releaseAll();
 }
 
 // показать-скрыть чат
 void click_chat_on_off() {
-  Keyboard.press(KEY_LEFT_ALT);
-  Keyboard.press(KEY_LEFT_SHIFT);
+  KEYBOARD_PRESS(KEY_LEFT_ALT);
+  KEYBOARD_PRESS(KEY_LEFT_SHIFT);
   Keyboard.write('4');
   Keyboard.releaseAll();
 }
