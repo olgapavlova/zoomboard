@@ -18,7 +18,7 @@
 
 #include <Keyboard.h>
 
-//#define DEBUG 1
+#define DEBUG 1
 
 #define PIN_HAND  7
 #define PIN_SOUND 8
