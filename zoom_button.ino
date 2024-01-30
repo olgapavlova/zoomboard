@@ -7,12 +7,8 @@
   -- включить/выключить звук;
   -- показать/скрыть чат.
 
-  PIN_HAND  Пин кнопки поднятия/опускания руки.
-  PIN_MIC Пин кнопки вкл/выкл микрофона.
-  PIN_CHAT  Пин кнопки отображения чата.
-
   DEBUG Если переменная определена, клавиатура переходит в отладочный режим
-        -- кнопки отправляют только чистые символы, без клавиш-модификаторов.
+        -- кнопки отправляют только чистые символы, без клавиш-модификаторов. (TODO TODO TODO)
 
 */
 
@@ -21,67 +17,31 @@
 
 #define DEBUG 1
 
-#define PIN_HAND  0   // пин кнопки руки
-#define PIN_MIC   1   // пин кнопки микрофона
-#define PIN_CHAT  2   // пин кнопки чата
-
 // Определения горячих клавиш
 // KEY -- клавиши основной клавиатуры,
 // MOD -- клавиши-модификаторы
-#define KEY_HAND
-#define MOD_HAND
+#define KEY_HAND  KEY_ARROW_LEFT
+#define MOD_HAND  MOD_SHIFT_LEFT | MOD_CONTROL_LEFT
+#define PIN_HAND  0   // пин кнопки руки
 
-#define KEY_MIC
-#define MOD_MIC
+#define KEY_MIC   KEY_B
+#define MOD_MIC   MOD_SHIFT_LEFT
+#define PIN_MIC   1   // пин кнопки микрофона
 
-#define KEY_CHAT
-#define MOD_CHAT
+#define KEY_CHAT  KEY_C
+#define MOD_CHAT  MOD_SHIFT_LEFT
+#define PIN_CHAT  2   // пин кнопки чата
 
+// * * * = = = = = = = = = = = = = = = * * * //
 
+Button handButton(PIN_HAND, KEY_HAND, MOD_HAND);
+Button micButton(PIN_MIC, KEY_MIC, MOD_MIC);
+Button chatButton(PIN_CHAT, KEY_CHAT, MOD_CHAT);
 
-// функции-обработчики для разных кнопок
-void click_hand_on_off();
-void click_sound_on_off();
-void click_chat_on_off();
+void setup() {}
 
-// кнопки с привязкой к Zoom-функциональности
-Button handButton(PIN_HAND, click_hand_on_off);
-Button soundButton(PIN_MIC, click_sound_on_off);
-Button chatButton(PIN_CHAT, click_chat_on_off);
-
-/*
-  СТАРТ ПРОГРАММЫ
-*/
-void setup() {
-
-}
-
-/*
-  ОСНОВНОЙ ЦИКЛ ПРОГРАММЫ
-*/
 void loop() {
   handButton.check_and_react();
-  soundButton.check_and_react();
+  micButton.check_and_react();
   chatButton.check_and_react();
-}
-
-/*
-  ФУНКЦИИ РЕАКЦИИ НА КНОПКИ
-*/
-
-// TODO шаблонизировать функции нажатия горячих клавиш
-
-// поднять-опустить руку
-void click_hand_on_off() {
-  DigiKeyboard.sendKeyStroke(KEY_A);
-}
-
-// вкл-выкл звук
-void click_sound_on_off() {
-  DigiKeyboard.sendKeyStroke(KEY_B);
-}
-
-// показать-скрыть чат
-void click_chat_on_off() {
-  DigiKeyboard.sendKeyStroke(KEY_C);
 }

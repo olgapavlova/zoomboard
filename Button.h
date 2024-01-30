@@ -4,44 +4,50 @@
 // Класс работы с кнопкой
 class Button {
   public:
-    Button(int pin, void (*function)()) {
+    Button(int pin, byte key, byte mod) {
       _pin = pin;
-      _react_on_press_pointer = *function;
-      pinMode(_pin, INPUT);
+      _key = key;
+      _mod = mod;
+
+      pinMode(_pin, INPUT); // инициировать пин, к которому подключена кнопка
     }
 
-    void check_and_react() { // TODO разбить на две функции, а то в этой два действия, перегруз
-      _update_current_state();
-      // Serial.println(_pressed_flag);
-      // Serial.println(_current_state);
-
-      // TODO Перевести два if на switch (just-функцию тоже можно оставить одну)
-      if (_just_pressed()) {
-          _pressed_flag = true;  // TODO так неаккуратно, надо как-то иначе сделать
-          _react_on_press();
-      }
-
-      if (_just_released()) { _pressed_flag = false; }
+    void check_and_react() { // проверить состояние кнопки и отреагировать на него (основная функция класса)
+      _check_current_state();
+      _react_on_changes();
     }
 
   private:
-    int _pin;  // ?TODO выбрать тип попроще
+    byte _pin;
+    byte _key;
+    byte _mod;
+
     bool _pressed_flag = false;  // флаг состояния
-    bool _current_state = LOW;  // нажатость кнопки
+    bool _current_state = LOW;  // нажатость кнопки (нормально разомкнута)
     
-    void (*_react_on_press_pointer)();  // указатель на функцию-обработчик нажатия
-    void _react_on_press() { (*_react_on_press_pointer)(); }  // обёртка указателя на функцию-обработчик нажатия
-
-    void _update_current_state() {
-      _current_state = !digitalRead(_pin); // инверсия из-за подтяжки к 5 В
+    void _activate_key() { // сделать то, что кнопка должна сделать; сейчас -- нажать горячую клавишу
+      DigiKeyboard.sendKeyStroke(_key, _mod);
     }
 
-    bool _just_pressed() {  // проверка, что кнопка только что нажата
-      return (_current_state && !_pressed_flag);
+    void _check_current_state() { // обновить состояние кнопки
+      _current_state = !digitalRead(_pin); // инверсия из-за триггера Шмитта
     }
 
-    bool _just_released() {  // проверка, что кнопка только что отпущена
-      return (!_current_state && _pressed_flag);
+    int _just_happend() { // выяснить, что произошло
+      return (int)_current_state - (int)_pressed_flag; // 1 -- кнопка нажата, -1 -- отпущена, 0 -- без изменений
+    }
+
+    void _react_on_changes() { // отреагировать на произошедшее
+     switch (_just_happend()) {
+        case 1: // кнопка нажата
+          _pressed_flag = true;
+          _activate_key();
+          break;
+
+        case -1: // кнопка отпущена
+          _pressed_flag = false;
+          break;
+      }
     }
 
 };
