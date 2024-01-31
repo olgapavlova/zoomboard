@@ -22,7 +22,7 @@ The second problem is, Digispark Keyboard library has any clue about Option butt
 
 Fortunately, Zoom allows to reconfigure hotkeys. Here is my solution to avoid all possible troubles.
 * Alt + 1 -- raise hand/lower hand
-* Cmd + Shift + 0 -- mute/unmute audio
+* Alt + Shift + 0 -- mute/unmute audio
 * F7 -- show/hide in-meeting chat panel
 Changes should be appied both to Zoom and to Arduino code.
 
