@@ -1,6 +1,8 @@
 #pragma once
 #include <Arduino.h>
 
+#define DEBUG 0
+
 // Класс работы с кнопкой
 class Button {
   public:
@@ -26,7 +28,7 @@ class Button {
     bool _current_state = LOW;  // нажатость кнопки (нормально разомкнута)
     
     void _activate_key() { // сделать то, что кнопка должна сделать; сейчас -- нажать горячую клавишу
-      DigiKeyboard.sendKeyStroke(_key, _mod);
+      DigiKeyboard.sendKeyStroke(_key, (1 - DEBUG) * _mod);
     }
 
     void _check_current_state() { // обновить состояние кнопки

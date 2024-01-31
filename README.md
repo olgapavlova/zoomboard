@@ -14,3 +14,16 @@ Arduino Pro Micro is also supported.
 
 Hotkey set: Zoom for Apple computers.
 Windows, Linux, etc. could be configured without any problems.
+
+## Apple Hotkeys Configuration for Multilanguage Environments
+If you practice more than one language, it might be tricky to use not only this keyboard, but Zoom hotkeys as a whole. The reason is, most hotkeys work only in English keyboard layout.
+
+The second problem is, Digispark Keyboard library has any clue about Option button. Is can be resolved, hovewer makes code a bit complicated.
+
+Fortunately, Zoom allows to reconfigure hotkeys. Here is my solution to avoid all possible troubles.
+* Alt + 1 -- raise hand/lower hand
+* Cmd + Shift + 0 -- mute/unmute audio
+* F7 -- show/hide in-meeting chat panel
+Changes should be appied both to Zoom and to Arduino code.
+
+To avoid conflict between chat, hand, and audio, it is better to check hand and audio as global hotkeys. They have to be configured in Zoom, not in Arduino code.

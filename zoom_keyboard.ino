@@ -15,21 +15,19 @@
 #include <DigiKeyboard.h>
 #include "Button.h"
 
-#define DEBUG 1
-
 // Определения горячих клавиш
 // KEY -- клавиши основной клавиатуры,
 // MOD -- клавиши-модификаторы
-#define KEY_HAND  KEY_ARROW_LEFT
-#define MOD_HAND  MOD_SHIFT_LEFT | MOD_CONTROL_LEFT
+#define KEY_HAND  KEY_1
+#define MOD_HAND  MOD_ALT_LEFT
 #define PIN_HAND  0   // пин кнопки руки
 
-#define KEY_MIC   KEY_B
-#define MOD_MIC   MOD_SHIFT_LEFT
+#define KEY_MIC   KEY_0
+#define MOD_MIC   MOD_ALT_LEFT | MOD_SHIFT_LEFT
 #define PIN_MIC   1   // пин кнопки микрофона
 
-#define KEY_CHAT  KEY_C
-#define MOD_CHAT  MOD_SHIFT_LEFT
+#define KEY_CHAT  KEY_F7
+#define MOD_CHAT  0
 #define PIN_CHAT  2   // пин кнопки чата
 
 // * * * = = = = = = = = = = = = = = = * * * //
