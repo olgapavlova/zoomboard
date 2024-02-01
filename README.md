@@ -1,3 +1,4 @@
+![Zoom keyboard — small keyboard to improve educational experience during Zoom sessions](https://github.com/olgapavlova/zoom_keyboard/assets/5625988/2c973657-f33d-4834-b911-65db6cab1ba1)
 # Zoom Keyboard
 Small keyboard to improve educational experience during Zoom sessions.
 
