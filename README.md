@@ -7,13 +7,13 @@ Provides 3 buttons for the hotkeys:
 * Mute/unmute audio
 * Show/hide in-meeting chat panel
 
-Two main buttons support student's use case: raise hand → unmute audio → answer the question → mute audio, lower hand.
+Two main buttons support student's use case: raise hand → unmute audio → answer the question → mute audio, lower hand.  
 As an extra feature, third button shows/hides in-meeting chat to avoid annoyance which happens because of chat allerts.
 
-Platform: Digispark ATtiny 85.
+Platform: Digispark ATtiny 85.  
 Arduino Pro Micro is also supported.
 
-Hotkey set: Zoom for Apple computers.
+Hotkey set: Zoom for Apple computers.  
 Windows, Linux, etc. could be configured without any problems.
 
 &nbsp; 
@@ -28,9 +28,9 @@ If you practice more than one language, it might be tricky to use not only this 
 The second problem is, Digispark Keyboard library has any clue about Option button. Is can be resolved, hovewer makes code a bit complicated.
 
 Fortunately, Zoom allows to reconfigure hotkeys. Here is my solution to avoid all possible troubles.
-* Alt + 1 -- raise hand/lower hand
-* Alt + Shift + 0 -- mute/unmute audio
-* F7 -- show/hide in-meeting chat panel
+* <kbd>ALT</kbd> + <kbd>1</kbd> -- raise hand/lower hand
+* <kbd>ALT</kbd> + <kbd>SHIFT</kbd> + <kbd>0</kbd> -- mute/unmute audio
+* <kbd>F7</kbd> -- show/hide in-meeting chat panel
 Changes should be appied both to Zoom and to Arduino code.
 
 To avoid conflict between chat, hand, and audio, it is better to check hand and audio as global hotkeys. They have to be configured in Zoom, not in Arduino code.
