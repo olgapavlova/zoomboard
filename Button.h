@@ -3,7 +3,7 @@
 
 #define DEBUG 0
 
-// Класс работы с кнопкой
+// Main button class -- pin, hotkey, action logic
 class Button {
   public:
     Button(int pin, byte key, byte mod) {
