@@ -7,7 +7,8 @@ Provides 3 buttons for the hotkeys:
 * Mute/unmute audio
 * Show/hide in-meeting chat panel
 
-Two main buttons support student's use case: raise hand → unmute audio → answer the question → mute audio, lower hand.  
+Two main buttons support student's use case:  
+raise hand → unmute audio → answer the question → mute audio, lower hand.  
 As an extra feature, third button shows/hides in-meeting chat to avoid annoyance which happens because of chat allerts.
 
 Platform: Digispark ATtiny 85.  
