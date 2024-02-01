@@ -16,6 +16,8 @@ Arduino Pro Micro is also supported.
 Hotkey set: Zoom for Apple computers.
 Windows, Linux, etc. could be configured without any problems.
 
+![How Zoom keyboard_works](https://github.com/olgapavlova/zoom_keyboard/assets/5625988/c11ce52a-9fe9-46d7-bc52-84594faacb27)
+
 ## Apple Hotkeys Configuration for Multilanguage Environments
 If you practice more than one language, it might be tricky to use not only this keyboard, but Zoom hotkeys as a whole. The reason is, most hotkeys work only in English keyboard layout.
 
