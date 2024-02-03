@@ -33,6 +33,9 @@ The main idea of this cirquit is to avoid contact bounce without, well, coding. 
 
 ![Full cirquit diagram for Zoom keyboard](https://github.com/olgapavlova/zoom_keyboard/assets/5625988/7656b938-0886-4e6d-8caa-029cd1dc3319)
 
+&nbsp;
+
+![Breadboard prototype of Zoom keyboard](https://github.com/olgapavlova/zoom_keyboard/assets/5625988/3e66ba8a-be09-422c-8dff-8041e19eac43)
 
 &nbsp;
 
