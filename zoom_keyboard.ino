@@ -1,34 +1,30 @@
 /*
 
-  Прошивка для трёхкнопочной клавиатуры.
+  Zoom Keyboard
+  Small keyboard to improve educational experience during Zoom sessions.
 
-  Кнопки отправляют команды в Zoom:
-  -- поднять/опустить руку;
-  -- включить/выключить звук;
-  -- показать/скрыть чат.
-
-  DEBUG Если переменная определена, клавиатура переходит в отладочный режим
-        -- кнопки отправляют только чистые символы, без клавиш-модификаторов. (TODO TODO TODO)
-
+  Provides 3 buttons for the hotkeys:
+  -- raise hand/lower hand;
+  -- mute/unmute audio;
+  -- show/hide in-meeting chat panel.
+  
 */
 
 #include <DigiKeyboard.h>
 #include "Button.h"
 
-// Определения горячих клавиш
-// KEY -- клавиши основной клавиатуры,
-// MOD -- клавиши-модификаторы
+// Hotkeys and pins
 #define KEY_HAND  KEY_1
 #define MOD_HAND  MOD_ALT_LEFT
-#define PIN_HAND  0   // пин кнопки руки
+#define PIN_HAND  0
 
 #define KEY_MIC   KEY_0
 #define MOD_MIC   MOD_ALT_LEFT | MOD_SHIFT_LEFT
-#define PIN_MIC   1   // пин кнопки микрофона
+#define PIN_MIC   1
 
 #define KEY_CHAT  KEY_F7
 #define MOD_CHAT  0
-#define PIN_CHAT  2   // пин кнопки чата
+#define PIN_CHAT  2
 
 // * * * = = = = = = = = = = = = = = = * * * //
 

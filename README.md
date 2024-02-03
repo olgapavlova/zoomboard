@@ -80,6 +80,22 @@ Changes should be appied both to Zoom and to Arduino code.
 
 To avoid conflict between chat, hand, and audio, it is better to check hand and audio as global hotkeys. They have to be configured in Zoom, not in Arduino code.
 
+To configure Arduino code, change some preprocessing variables:
+```
+#define KEY_HAND  KEY_1
+#define MOD_HAND  MOD_ALT_LEFT
+...
+#define KEY_MIC   KEY_0
+#define MOD_MIC   MOD_ALT_LEFT | MOD_SHIFT_LEFT
+...
+#define KEY_CHAT  KEY_F7
+#define MOD_CHAT  0
+```
+
+To combine two mod keys, join them with | (OR) operator.
+
+You can find the full list of available key codes in [DigiKeyboard library source code](https://github.com/digistump/DigistumpArduino/tree/master/digistump-avr/libraries/DigisparkKeyboard).
+
 ## Useful Links
 These sources altogether are enough to rebuild the project from scratch.
 Partially in Russian language. I hope, it cannot be tricky to translate it automatically.
