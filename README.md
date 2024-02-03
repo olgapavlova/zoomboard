@@ -24,8 +24,8 @@ Windows, Linux, etc. could be configured without any problems.
 &nbsp; 
 
 ## Full Cirquit Diagram
-[!CAUTION]
-Never use this code without adapted circuit diagram. It just will not work properly.
+> [!CAUTION]
+> **Never** use this code without adapted circuit diagram. It just will not work properly.
 
 The main idea of this cirquit is to avoid contact bounce without, well, coding. Code is fine, but my interest here is to make out-of-code solution for contact bounce, and to practice in cirquits.
 
