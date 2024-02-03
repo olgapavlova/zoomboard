@@ -32,27 +32,34 @@ The main idea of this cirquit is to avoid contact bounce without, well, coding. 
 ### Full Cirquit Diagram
 ![Full cirquit diagram for Zoom keyboard](https://github.com/olgapavlova/zoom_keyboard/assets/5625988/7656b938-0886-4e6d-8caa-029cd1dc3319)
 
-&nbsp;
-
 ### Breadboard Prototype
 It is not necessary to mount all details (as you can see on photo), one button is enough for prototype purpuses.
 
 ![Breadboard prototype of Zoom keyboard](https://github.com/olgapavlova/zoom_keyboard/assets/5625988/3e66ba8a-be09-422c-8dff-8041e19eac43)
 
-&nbsp;
-
 ### Cirquit Board
 Buttons and Digispark are connected separately with wires.
-
 ![Cirquit Board for Zoom Keyboard](https://github.com/olgapavlova/zoom_keyboard/assets/5625988/c7e8e9f4-6e37-4799-b33c-f56cba4b22f8)
 
 
-## Apple Hotkeys Configuration for Multilanguage Environments
+## Code and System Configuration
+> [!WARNING]
+> The code is preconfigured for my system only. To work properly on your side, it has to be changed a bit as it explained below.
+
+### Debug Mode
+In Button.h file, there is a string with DEBUG preprocessing variable:
+```c++
+#define DEBUG 0
+```
+Change to 1 (and save the file), if you wish to switch modificators (<kbd>SHIFT</kbd>, etc.) off.
+
+### Apple Hotkeys Configuration for Multilanguage Environments
 If you practice more than one language, it might be tricky to use not only this keyboard, but Zoom hotkeys as a whole. The reason is, most hotkeys work only in English keyboard layout.
 
 The second problem is, [DigiKeyboard](https://github.com/digistump/DigistumpArduino/tree/master/digistump-avr/libraries/DigisparkKeyboard) library has not any clue about <kbd>Option</kbd> button. Is can be resolved, hovewer makes code a bit complicated.
 
-Fortunately, Zoom allows to reconfigure hotkeys. Here is my solution to avoid all possible troubles.
+Fortunately, [Zoom allows to reconfigure hotkeys](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0067050).  
+Here is my solution to avoid all possible troubles.
 * <kbd>ALT</kbd> + <kbd>1</kbd> — raise hand/lower hand
 * <kbd>ALT</kbd> + <kbd>SHIFT</kbd> + <kbd>0</kbd> — mute/unmute audio
 * <kbd>F7</kbd> — show/hide in-meeting chat panel
