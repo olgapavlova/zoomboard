@@ -42,21 +42,21 @@ If you practice more than one language, it might be tricky to use not only this 
 The second problem is, [DigiKeyboard](https://github.com/digistump/DigistumpArduino/tree/master/digistump-avr/libraries/DigisparkKeyboard) library has not any clue about <kbd>Option</kbd> button. Is can be resolved, hovewer makes code a bit complicated.
 
 Fortunately, Zoom allows to reconfigure hotkeys. Here is my solution to avoid all possible troubles.
-* <kbd>ALT</kbd> + <kbd>1</kbd> -- raise hand/lower hand
-* <kbd>ALT</kbd> + <kbd>SHIFT</kbd> + <kbd>0</kbd> -- mute/unmute audio
-* <kbd>F7</kbd> -- show/hide in-meeting chat panel
+* <kbd>ALT</kbd> + <kbd>1</kbd> — raise hand/lower hand
+* <kbd>ALT</kbd> + <kbd>SHIFT</kbd> + <kbd>0</kbd> — mute/unmute audio
+* <kbd>F7</kbd> — show/hide in-meeting chat panel
 Changes should be appied both to Zoom and to Arduino code.
 
 To avoid conflict between chat, hand, and audio, it is better to check hand and audio as global hotkeys. They have to be configured in Zoom, not in Arduino code.
 
 ## Useful Links
-All these sources are enough to rebuild the project from scratch.
+These sources altogether are enough to rebuild the project from scratch.
 Partially in Russian language. I hope, it cannot be tricky to translate it automatically.
-* [GTK Keyboard](https://youtu.be/BGkTiVP5ryY?si=Cz4yyMLpRYj-izkc) (video) -- Digispark keyboard with two keys; looks pretty
-* [Alex Gyver's intro to Digispark](https://alexgyver.ru/lessons/digispark/) -- a bit old, but still inspiring
-* [Linux Mint Digispark installation](https://startingelectronics.org/tutorials/arduino/digispark/digispark-linux-setup/) -- step by step guide; do not forget “Programmer: Micronucleus” option!
-* [DigiKeyboad library](https://github.com/digistump/DigistumpArduino/tree/master/digistump-avr/libraries/DigisparkKeyboard) -- Github source; useful to read
-* [Using multiple modifiers](http://digistump.com/board/index.php?topic=116.0) -- in short, use binary operation | (OR) to combine MOD_*
-* [Contact bounce demistified](http://codius.ru/articles/Arduino_Дребезг_программное_и_аппаратное_устранение) -- how to find out and how to avoid both in code or in cirquit
-* [Alex Gyver's introduction to classes on Arduino](https://alexgyver.ru/lessons/class/) -- class usage is not necessary but very funny in this tiny project
+* [GTK Keyboard](https://youtu.be/BGkTiVP5ryY?si=Cz4yyMLpRYj-izkc) (video) — Digispark keyboard with two keys; looks pretty
+* [Alex Gyver's intro to Digispark](https://alexgyver.ru/lessons/digispark/) — a bit old, but still inspiring
+* [Linux Mint Digispark installation](https://startingelectronics.org/tutorials/arduino/digispark/digispark-linux-setup/) — step by step guide; do not forget “Programmer: Micronucleus” option!
+* [DigiKeyboad library](https://github.com/digistump/DigistumpArduino/tree/master/digistump-avr/libraries/DigisparkKeyboard) — Github source; useful to read
+* [Using multiple modifiers](http://digistump.com/board/index.php?topic=116.0) — in short, use binary operation | (OR) to combine MOD_*
+* [Contact bounce demistified](http://codius.ru/articles/Arduino_Дребезг_программное_и_аппаратное_устранение) — how to find out and how to avoid both in code or in cirquit
+* [Alex Gyver's introduction to classes on Arduino](https://alexgyver.ru/lessons/class/) — class usage is not necessary but very funny in this tiny project
 
