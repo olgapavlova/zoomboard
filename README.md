@@ -22,7 +22,20 @@ Windows, Linux, etc. could be configured without any problems.
 ![How Zoom keyboard_works](https://github.com/olgapavlova/zoom_keyboard/assets/5625988/c11ce52a-9fe9-46d7-bc52-84594faacb27)
  
 &nbsp; 
- 
+
+## Full Cirquit Diagram
+[!CAUTION]
+Never use this code without adapted circuit diagram. It just will not work properly.
+
+The main idea of this cirquit is to avoid contact bounce without, well, coding. Code is fine, but my interest here is to make out-of-code solution for contact bounce, and to practice in cirquits.
+
+&nbsp;
+
+![Full cirquit diagram for Zoom keyboard](https://github.com/olgapavlova/zoom_keyboard/assets/5625988/7656b938-0886-4e6d-8caa-029cd1dc3319)
+
+
+&nbsp;
+
 ## Apple Hotkeys Configuration for Multilanguage Environments
 If you practice more than one language, it might be tricky to use not only this keyboard, but Zoom hotkeys as a whole. The reason is, most hotkeys work only in English keyboard layout.
 
