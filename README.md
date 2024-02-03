@@ -23,21 +23,29 @@ Windows, Linux, etc. could be configured without any problems.
  
 &nbsp; 
 
-## Full Cirquit Diagram
+## Cirquit
 > [!CAUTION]
 > **Never** use this code without adapted circuit diagram. It just will not work properly.
 
 The main idea of this cirquit is to avoid contact bounce without, well, coding. Code is fine, but my interest here is to make out-of-code solution for contact bounce, and to practice in cirquits.
 
-&nbsp;
-
+### Full Cirquit Diagram
 ![Full cirquit diagram for Zoom keyboard](https://github.com/olgapavlova/zoom_keyboard/assets/5625988/7656b938-0886-4e6d-8caa-029cd1dc3319)
 
 &nbsp;
 
+### Breadboard Prototype
+It is not necessary to mount all details (as you can see on photo), one button is enough for prototype purpuses.
+
 ![Breadboard prototype of Zoom keyboard](https://github.com/olgapavlova/zoom_keyboard/assets/5625988/3e66ba8a-be09-422c-8dff-8041e19eac43)
 
 &nbsp;
+
+### Cirquit Board
+Buttons and Digispark are connected separately with wires.
+
+![Cirquit Board for Zoom Keyboard](https://github.com/olgapavlova/zoom_keyboard/assets/5625988/c7e8e9f4-6e37-4799-b33c-f56cba4b22f8)
+
 
 ## Apple Hotkeys Configuration for Multilanguage Environments
 If you practice more than one language, it might be tricky to use not only this keyboard, but Zoom hotkeys as a whole. The reason is, most hotkeys work only in English keyboard layout.
