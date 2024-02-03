@@ -59,4 +59,5 @@ Partially in Russian language. I hope, it cannot be tricky to translate it autom
 * [Using multiple modifiers](http://digistump.com/board/index.php?topic=116.0) — in short, use binary operation | (OR) to combine MOD_*
 * [Contact bounce demistified](http://codius.ru/articles/Arduino_Дребезг_программное_и_аппаратное_устранение) — how to find out and how to avoid both in code or in cirquit
 * [Alex Gyver's introduction to classes on Arduino](https://alexgyver.ru/lessons/class/) — class usage is not necessary but very funny in this tiny project
+* [Alex Gyver's introduction to self-made libraries on Arduino](https://alexgyver.ru/lessons/library-writing/) — see the previous line about classes
 
