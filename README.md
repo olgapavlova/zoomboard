@@ -11,11 +11,10 @@ Two main buttons support student's use case:
 raise hand → unmute audio → answer the question → mute audio, lower hand.  
 As an extra feature, third button shows/hides in-meeting chat to avoid annoyance which happens because of chat allerts.
 
-Platform: Digispark ATtiny 85.  
-Arduino Pro Micro is also supported.
+Platform: Digispark ATtiny 85.
 
-Hotkey set: Zoom for Apple computers.  
-Windows, Linux, etc. could be configured without any problems.
+Hotkey preset: Zoom for Apple computers, customized version (see below).  
+Windows, Linux, etc. could be configured without any problems, and all have been tested.
 
 &nbsp; 
  
@@ -23,7 +22,7 @@ Windows, Linux, etc. could be configured without any problems.
  
 &nbsp; 
 
-## Cirquit
+## Hardware
 > [!CAUTION]
 > **Never** use this code without adapted circuit diagram. It just will not work properly.
 
@@ -42,9 +41,23 @@ Buttons and Digispark are connected separately with wires.
 ![Cirquit Board for Zoom Keyboard](https://github.com/olgapavlova/zoom_keyboard/assets/5625988/c7e8e9f4-6e37-4799-b33c-f56cba4b22f8)
 
 
-## Code and System Configuration
+## Software and System Configuration
 > [!WARNING]
 > The code is preconfigured for my system only. To work properly on your side, it has to be changed a bit as it explained below.
+
+### Pin Numbers
+Preprocessor variables PIN_* in zoom_keyboard.ino file configures your button pins in usual Arduino way.
+```c++
+#define PIN_HAND 0
+...
+#define PIN_MIC 1
+...
+#define PIN_CHAT 2
+```
+
+You can use only 0, 1, and 2 pins.
+3 and 4 pins are reserved for USB on Digispark boards, and not available for this project.
+You can try to use 5 pin. However, some boards do not support it properly, so be careful.
 
 ### Debug Mode
 In Button.h file, there is a string with DEBUG preprocessing variable:
@@ -56,7 +69,7 @@ Change to 1 (and save the file), if you wish to switch modificators (<kbd>SHIFT<
 ### Apple Hotkeys Configuration for Multilanguage Environments
 If you practice more than one language, it might be tricky to use not only this keyboard, but Zoom hotkeys as a whole. The reason is, most hotkeys work only in English keyboard layout.
 
-The second problem is, [DigiKeyboard](https://github.com/digistump/DigistumpArduino/tree/master/digistump-avr/libraries/DigisparkKeyboard) library has not any clue about <kbd>Option</kbd> button. Is can be resolved, hovewer makes code a bit complicated.
+The second problem is, [DigiKeyboard](https://github.com/digistump/DigistumpArduino/tree/master/digistump-avr/libraries/DigisparkKeyboard) library has not any clue about <kbd>CMD</kbd> button. Is can be resolved, hovewer makes code a bit complicated.
 
 Fortunately, [Zoom allows to reconfigure hotkeys](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0067050).  
 Here is my solution to avoid all possible troubles.
